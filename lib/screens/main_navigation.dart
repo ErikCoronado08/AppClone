@@ -18,7 +18,7 @@ class _MainNavigationState extends State<MainNavigation> {
     const ExploreScreen(),
     const Center(child: Text('Pantalla Buscar (Próximamente)')),
     const Center(child: Text('Pantalla Biblioteca (Próximamente)')),
-    const ProfileScreen(),
+    const ProfileScreen(), // <-- Aquí conectamos la pantalla de perfil
   ];
 
   @override
