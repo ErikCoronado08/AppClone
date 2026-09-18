@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
+import 'license_screen.dart';
 
 class PlayerScreen extends StatefulWidget {
   final Map<String, dynamic> beat;
@@ -26,7 +27,7 @@ class _PlayerScreenState extends State<PlayerScreen> {
       // Cargamos la URL de audio simulada desde el JSON del beat seleccionado
       await _audioPlayer.setUrl(widget.beat['audio_url']);
     } catch (e) {
-      debugBox: "Error loading audio: $e";
+      print("Error loading audio: $e");
     }
   }
 
@@ -130,7 +131,7 @@ class _PlayerScreenState extends State<PlayerScreen> {
               ],
             ),
             const Spacer(),
-            // Botón de compra rápido simulado con precio
+            // Botón de compra rápido simulado con precio que navega a LicenseScreen
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
@@ -141,7 +142,12 @@ class _PlayerScreenState extends State<PlayerScreen> {
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                 ),
                 onPressed: () {
-                  // Aquí abriremos la ventana de licencias en el Sprint 3
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => LicenseScreen(beat: widget.beat),
+                    ),
+                  );
                 },
                 child: Text(
                   'BUY \$${widget.beat['price']}',
