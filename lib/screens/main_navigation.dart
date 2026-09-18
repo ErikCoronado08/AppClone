@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'explore_screen.dart';
 import 'profile_screen.dart';
-// Aquí importaremos las demás pantallas conforme las vayas creando
+import 'library_screen.dart';
 
 class MainNavigation extends StatefulWidget {
   const MainNavigation({super.key});
@@ -17,8 +17,8 @@ class _MainNavigationState extends State<MainNavigation> {
   final List<Widget> _screens = [
     const ExploreScreen(),
     const Center(child: Text('Pantalla Buscar (Próximamente)')),
-    const Center(child: Text('Pantalla Biblioteca (Próximamente)')),
-    const ProfileScreen(), // <-- Aquí conectamos la pantalla de perfil
+    const LibraryScreen(),
+    const ProfileScreen(),
   ];
 
   @override
